@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
 
 :root {
-  /* ... keep your existing colors ... */
   --navy: #0a192f;
   --light-navy: #112240;
   --lightest-navy: #233554;
@@ -16,7 +15,6 @@ body {
   margin: 0;
   background-color: var(--navy);
   color: var(--slate);
-  /* CHANGE THIS LINE BELOW: */
   font-family: 'Inter', sans-serif; 
   line-height: 1.3;
 }
@@ -46,4 +44,54 @@ h1, h2, h3, h4, h5, h6 {
 
 button {
   cursor: pointer;
+}
+
+/* --- Responsive Layout Helpers --- */
+
+/* Navbar: Stacks links on mobile */
+.nav-container {
+  padding: 0 50px;
+  height: 80px;
+}
+
+/* Hero: Stacks image and text on mobile */
+.hero-container {
+  min-height: calc(100vh - 100px);
+  padding: 0 50px;
+  gap: 80px;
+  flex-wrap: wrap-reverse; /* Puts text on top, image on bottom on mobile */
+}
+
+/* Image container resize for mobile */
+.profile-image-wrapper {
+  width: 350px;
+  height: 350px;
+}
+
+/* Mobile Screen Adjustments (Screens smaller than 768px) */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 20px; /* Less padding on mobile */
+    height: auto;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+
+  .hero-container {
+    padding: 40px 20px; /* Less padding on mobile */
+    gap: 40px;
+    text-align: left; /* Keep text left aligned */
+    justify-content: flex-start;
+  }
+
+  .profile-image-wrapper {
+    width: 280px; /* Smaller image on mobile */
+    height: 280px;
+  }
+  
+  /* Hide social icons on very small screens if needed, or adjust spacing */
+  .social-icons {
+    display: none; /* Optional: hide icons on mobile header to save space */
+  }
 }
