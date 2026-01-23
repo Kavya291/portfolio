@@ -6,6 +6,7 @@
   --lightest-navy: #233554;
   --slate: #8892b0;
   --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
   --white: #e6f1ff;
   --green: #64ffda;
   --font-mono: 'SF Mono', 'Fira Code', monospace;
@@ -46,32 +47,29 @@ button {
   cursor: pointer;
 }
 
-/* --- Responsive Layout Helpers --- */
-
-/* Navbar: Stacks links on mobile */
 .nav-container {
   padding: 0 50px;
   height: 80px;
 }
 
-/* Hero: Stacks image and text on mobile */
+
 .hero-container {
   min-height: calc(100vh - 100px);
   padding: 0 50px;
   gap: 80px;
-  flex-wrap: wrap-reverse; /* Puts text on top, image on bottom on mobile */
+  flex-wrap: wrap-reverse; 
 }
 
-/* Image container resize for mobile */
+
 .profile-image-wrapper {
   width: 350px;
   height: 350px;
 }
 
-/* Mobile Screen Adjustments (Screens smaller than 768px) */
+
 @media (max-width: 768px) {
   .nav-container {
-    padding: 0 20px; /* Less padding on mobile */
+    padding: 0 20px; 
     height: auto;
     flex-direction: column;
     gap: 20px;
@@ -79,19 +77,82 @@ button {
   }
 
   .hero-container {
-    padding: 40px 20px; /* Less padding on mobile */
+    padding: 40px 20px; 
     gap: 40px;
-    text-align: left; /* Keep text left aligned */
+    text-align: left; 
     justify-content: flex-start;
   }
 
   .profile-image-wrapper {
-    width: 280px; /* Smaller image on mobile */
+    width: 280px; 
     height: 280px;
   }
   
-  /* Hide social icons on very small screens if needed, or adjust spacing */
+
   .social-icons {
-    display: none; /* Optional: hide icons on mobile header to save space */
+    display: none;
   }
+}
+
+/* --- EXPERIENCE SECTION RESPONSIVENESS --- */
+
+@media (max-width: 600px) {
+  .experience-inner {
+    flex-direction: column; /* Stack top-to-bottom instead of left-to-right */
+  }
+
+  .tab-list {
+    flex-direction: row !important; /* Horizontal buttons */
+    overflow-x: auto; /* Allow scrolling if too many tabs */
+    margin-bottom: 30px;
+    border-bottom: 2px solid #233554;
+    min-width: auto !important;
+  }
+
+  /* Hide vertical line elements on mobile */
+  .tab-list button {
+    border-left: none !important;
+    border-bottom: 2px solid transparent; /* Prepare for bottom highlight */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+  }
+
+  /* This is tricky: React inline styles override CSS usually. 
+     For a perfect mobile slider bar, we often just hide the sliding bar 
+     and use border-bottom color on the active button via logic, 
+     but this CSS tweak makes it decent for now. */
+}
+
+/* --- STICKY NAVBAR STYLES --- */
+.nav-container {
+  position: fixed; /* Locks it to the screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it sits ON TOP of everything */
+  background-color: rgba(10, 25, 47, 0.85); /* Semi-transparent Navy */
+  backdrop-filter: blur(10px); /* Cool glass blur effect */
+  box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7); /* Subtle shadow */
+  padding: 0 50px;
+  height: 80px;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+/* Mobile Nav Adjustment */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 20px;
+    height: auto;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+/* --- SECTION SPACING (Fixes Merging & Hiding) --- */
+section {
+  padding-top: 120px; /* Push content down so it's not hidden behind navbar */
+  padding-bottom: 80px; /* Breathing room at bottom */
 }

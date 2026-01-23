@@ -1,6 +1,9 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Hero from './Hero';
+import About from './About'; 
+import Experience from './Experience';
+import Projects from './Projects';
 
 function App() {
   return (
@@ -8,11 +11,14 @@ function App() {
       minHeight: '100vh', 
       display: 'flex', 
       flexDirection: 'column',
-      background: 'var(--navy)', // Ensures background covers whole page
+      background: 'var(--navy)', 
       overflowX: 'hidden'
     }}>
       <Navbar />
       <Hero />
+      <About /> 
+      <Experience />
+      <Projects />
     </div>
   );
 }
