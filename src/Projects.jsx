@@ -48,13 +48,13 @@ const Projects = () => {
         }}></div>
       </div>
 
-      {/* PROJECT GRID - Fixed for Large Screens */}
+      {/* PROJECT GRID - Adjusted for Laptops */}
       <div style={{
         display: 'grid',
-        // Increased min-width to 320px to fill space better on big screens
-        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+        /* CHANGED: Lowered min-width from 320px to 270px so 3 cards fit on laptops */
+        gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', 
         gap: '20px',
-        justifyContent: 'center' /* Keeps cards centered if they don't fill the row */
+        justifyContent: 'center'
       }}>
         {projects.map((project, i) => (
           <div key={i} className="project-card" style={{
