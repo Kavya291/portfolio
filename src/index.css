@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
 
+/* --- 1. VARIABLES & BASICS --- */
 :root {
   --navy: #0a192f;
   --light-navy: #112240;
@@ -16,26 +17,9 @@ body {
   margin: 0;
   background-color: var(--navy);
   color: var(--slate);
-  font-family: 'Inter', sans-serif; 
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.3;
-}
-:root {
-  --navy: #0a192f;
-  --light-navy: #112240;
-  --lightest-navy: #233554;
-  --slate: #8892b0;
-  --light-slate: #a8b2d1;
-  --white: #e6f1ff;
-  --green: #64ffda;
-  --font-mono: 'SF Mono', 'Fira Code', monospace;
-}
-
-body {
-  margin: 0;
-  background-color: var(--navy);
-  color: var(--slate);
-  font-family: 'Calibre', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.3;
+  overflow-x: hidden; /* Prevents horizontal scrollbar */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -47,112 +31,121 @@ button {
   cursor: pointer;
 }
 
+/* Smooth Scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- 2. LARGE SCREEN & LAYOUT FIXES --- */
+
+/* Limits website width on huge monitors (like your office desktop) */
+#root {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Forces every section to take full screen height & center content */
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 100px; /* Space for sticky navbar */
+  padding-bottom: 100px;
+  box-sizing: border-box;
+}
+
+/* --- 3. STICKY NAVBAR --- */
 .nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(10, 25, 47, 0.85); /* Semi-transparent */
+  backdrop-filter: blur(10px); /* Glass effect */
+  box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
   padding: 0 50px;
   height: 80px;
+  box-sizing: border-box;
 }
 
-
+/* --- 4. HERO SECTION --- */
 .hero-container {
-  min-height: calc(100vh - 100px);
+  /* Height is handled by generic 'section' rule above */
   padding: 0 50px;
   gap: 80px;
-  flex-wrap: wrap-reverse; 
+  flex-wrap: wrap-reverse; /* Text on top, image on bottom for mobile */
 }
-
 
 .profile-image-wrapper {
   width: 350px;
   height: 350px;
 }
 
-
+/* --- 5. MOBILE RESPONSIVENESS (Phones & Tablets) --- */
 @media (max-width: 768px) {
-  .nav-container {
-    padding: 0 20px; 
-    height: auto;
-    flex-direction: column;
-    gap: 20px;
-    padding-bottom: 20px;
-  }
-
-  .hero-container {
-    padding: 40px 20px; 
-    gap: 40px;
-    text-align: left; 
-    justify-content: flex-start;
-  }
-
-  .profile-image-wrapper {
-    width: 280px; 
-    height: 280px;
-  }
   
-
-  .social-icons {
-    display: none;
-  }
-}
-
-/* --- EXPERIENCE SECTION RESPONSIVENESS --- */
-
-@media (max-width: 600px) {
-  .experience-inner {
-    flex-direction: column; /* Stack top-to-bottom instead of left-to-right */
+  /* Reset Section Height (Let content flow naturally on phone) */
+  section {
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 60px;
+    display: block;
   }
 
-  .tab-list {
-    flex-direction: row !important; /* Horizontal buttons */
-    overflow-x: auto; /* Allow scrolling if too many tabs */
-    margin-bottom: 30px;
-    border-bottom: 2px solid #233554;
-    min-width: auto !important;
-  }
-
-  /* Hide vertical line elements on mobile */
-  .tab-list button {
-    border-left: none !important;
-    border-bottom: 2px solid transparent; /* Prepare for bottom highlight */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 120px;
-  }
-
-  /* This is tricky: React inline styles override CSS usually. 
-     For a perfect mobile slider bar, we often just hide the sliding bar 
-     and use border-bottom color on the active button via logic, 
-     but this CSS tweak makes it decent for now. */
-}
-
-/* --- STICKY NAVBAR STYLES --- */
-.nav-container {
-  position: fixed; /* Locks it to the screen */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000; /* Ensures it sits ON TOP of everything */
-  background-color: rgba(10, 25, 47, 0.85); /* Semi-transparent Navy */
-  backdrop-filter: blur(10px); /* Cool glass blur effect */
-  box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7); /* Subtle shadow */
-  padding: 0 50px;
-  height: 80px;
-  box-sizing: border-box; /* Ensures padding doesn't break width */
-}
-
-/* Mobile Nav Adjustment */
-@media (max-width: 768px) {
+  /* Navbar Adjustments */
   .nav-container {
     padding: 0 20px;
     height: auto;
     flex-direction: column;
     gap: 15px;
     padding-bottom: 15px;
+    background-color: rgba(10, 25, 47, 0.95); /* Less transparent on mobile */
+  }
+
+  /* Hero Adjustments */
+  .hero-container {
+    padding: 0 20px;
+    gap: 40px;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  /* Image Resize */
+  .profile-image-wrapper {
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Hide Social Icons in header to save space */
+  .social-icons {
+    display: none;
   }
 }
 
-/* --- SECTION SPACING (Fixes Merging & Hiding) --- */
-section {
-  padding-top: 120px; /* Push content down so it's not hidden behind navbar */
-  padding-bottom: 80px; /* Breathing room at bottom */
+/* --- 6. EXPERIENCE TABBED SECTION (Mobile) --- */
+@media (max-width: 600px) {
+  .experience-inner {
+    flex-direction: column;
+  }
+
+  .tab-list {
+    flex-direction: row !important; /* Horizontal scrollable tabs */
+    overflow-x: auto;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #233554;
+    min-width: auto !important;
+    padding-bottom: 2px; /* Space for scrollbar */
+  }
+
+  .tab-list button {
+    border-left: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    white-space: nowrap;
+  }
 }

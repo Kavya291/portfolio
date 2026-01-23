@@ -30,9 +30,7 @@ const Experience = () => {
     <section id="experience" style={{
       maxWidth: '1000px',
       margin: '0 auto',
-      color: 'var(--slate)',
-      marginBottom: '300px',
-      position: 'relative'
+      color: 'var(--slate)'
     }}>
       {/* HEADER */}
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '40px' }}>
