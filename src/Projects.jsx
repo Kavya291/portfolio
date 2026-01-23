@@ -23,10 +23,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" style={{
-      maxWidth: '1000px',
-      margin: '0 auto',
-      padding: '100px 50px',
+    <section id="projects" className="section-content" style={{
       color: 'var(--slate)',
       marginBottom: '100px' 
     }}>

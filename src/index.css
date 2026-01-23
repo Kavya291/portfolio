@@ -149,3 +149,35 @@ section {
     white-space: nowrap;
   }
 }
+
+/* --- RESPONSIVE CONTENT WIDTHS --- */
+
+/* Default (Laptop) */
+.section-content {
+  width: 100%;
+  max-width: 1000px; 
+  margin: 0 auto;
+  padding: 0 20px; /* Prevents text hitting edges on tablets */
+}
+
+/* Big Desktop Monitors (1600px+) - The Fix */
+@media (min-width: 1600px) {
+  .section-content {
+    max-width: 1400px; /* Let it stretch wider */
+  }
+
+  /* Automatically make text bigger so it doesn't look tiny */
+  .section-content p, 
+  .section-content li {
+    font-size: 20px !important;
+    line-height: 1.8 !important;
+  }
+  
+  .section-content h2 {
+    font-size: 42px !important;
+  }
+  
+  .section-content h3 {
+    font-size: 28px !important;
+  }
+}

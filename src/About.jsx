@@ -20,10 +20,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" style={{
-      maxWidth: '900px',
-      margin: '0 auto',
-      padding: '100px 50px',
+    <section id="about" className="section-content" style={{
       color: 'var(--slate)'
     }}>
       

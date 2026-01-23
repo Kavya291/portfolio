@@ -27,9 +27,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" style={{
-      maxWidth: '1000px',
-      margin: '0 auto',
+    <section id="experience" className="section-content" style={{
       color: 'var(--slate)'
     }}>
       {/* HEADER */}
