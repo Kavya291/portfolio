@@ -48,12 +48,13 @@ const Projects = () => {
         }}></div>
       </div>
 
-      {/* PROJECT GRID */}
+      {/* PROJECT GRID - Fixed for Large Screens */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-        gap: '15px',
-        position: 'relative'
+        // Increased min-width to 320px to fill space better on big screens
+        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+        gap: '20px',
+        justifyContent: 'center' /* Keeps cards centered if they don't fill the row */
       }}>
         {projects.map((project, i) => (
           <div key={i} className="project-card" style={{
@@ -76,16 +77,14 @@ const Projects = () => {
             e.currentTarget.style.boxShadow = 'none';
           }}
           >
-            {/* TOP PART: Icons + Title + Desc */}
+            {/* TOP PART */}
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '30px' }}>
-                {/* Folder Icon */}
                 <div style={{ color: 'var(--green)' }}>
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                   </svg>
                 </div>
-                {/* GitHub Icon */}
                 <a href={project.github} target="_blank" rel="noreferrer" style={{ color: 'var(--slate)' }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
@@ -93,12 +92,7 @@ const Projects = () => {
                 </a>
               </div>
 
-              <h3 style={{ 
-                color: 'var(--lightest-slate)', 
-                fontSize: '22px', 
-                marginBottom: '10px',
-                fontWeight: 'bold' 
-              }}>
+              <h3 style={{ color: 'var(--lightest-slate)', fontSize: '22px', marginBottom: '10px', fontWeight: 'bold' }}>
                 {project.title}
               </h3>
 
@@ -107,23 +101,12 @@ const Projects = () => {
               </p>
             </div>
 
-            {/* BOTTOM PART: Tech Stack */}
-            <ul style={{ 
-              display: 'flex', 
-              flexWrap: 'wrap', 
-              gap: '15px', 
-              padding: 0, 
-              margin: 0, 
-              listStyle: 'none',
-              fontSize: '12px',
-              fontFamily: 'var(--font-mono)',
-              color: 'var(--slate)' 
-            }}>
+            {/* BOTTOM PART */}
+            <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', padding: 0, margin: 0, listStyle: 'none', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--slate)' }}>
               {project.tech.map((t, i) => (
                 <li key={i}>{t}</li>
               ))}
             </ul>
-
           </div>
         ))}
       </div>
