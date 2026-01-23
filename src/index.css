@@ -149,3 +149,50 @@ section {
   .section-content { max-width: 1400px; }
   .section-content p, .section-content li { font-size: 20px !important; }
 }
+
+/* --- NAVBAR STYLES --- */
+
+/* 1. Default Desktop View (Clean Row) */
+.nav-menu {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.hamburger {
+  display: none; /* Hidden on laptop/desktop */
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  z-index: 1001; /* Above everything */
+}
+
+/* 2. Mobile View (The Fix) */
+@media (max-width: 768px) {
+  
+  /* Show the 3-line bar */
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide the desktop links by default */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden off-screen to the right */
+    height: 100vh;
+    width: 70%; /* Takes up 70% of screen */
+    background-color: #112240; /* Light Navy */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transition: right 0.3s ease-in-out; /* Smooth slide animation */
+    box-shadow: -10px 0px 30px -15px rgba(2, 12, 27, 0.7);
+  }
+
+  /* When menu is open, slide it in */
+  .nav-menu.active {
+    right: 0;
+  }
+}
