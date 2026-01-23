@@ -48,14 +48,8 @@ const Projects = () => {
         }}></div>
       </div>
 
-      {/* PROJECT GRID - Adjusted for Laptops */}
-      <div style={{
-        display: 'grid',
-        /* CHANGED: Lowered min-width from 320px to 270px so 3 cards fit on laptops */
-        gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', 
-        gap: '20px',
-        justifyContent: 'center'
-      }}>
+      {/* PROJECT GRID - Using CSS Class 'projects-grid' for Mobile Control */}
+      <div className="projects-grid">
         {projects.map((project, i) => (
           <div key={i} className="project-card" style={{
             backgroundColor: 'var(--light-navy)',

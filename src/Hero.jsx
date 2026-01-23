@@ -10,33 +10,13 @@ const Hero = () => {
       padding: '0 20px'
     }}>
       
-      {/* This "hero-layout" class connects to the CSS we just added.
-        It forces the Side-by-Side layout on Desktop and Stack on Mobile.
-      */}
-      <div className="hero-layout" style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        width: '100%',
-        maxWidth: '1200px',
-        gap: '50px'
-      }}>
+      {/* Use CSS class for layout */}
+      <div className="hero-layout">
 
-        {/* LEFT SIDE: The Image (Photo Left) */}
-        <div style={{
-          flex: '1',
-          display: 'flex',
-          justifyContent: 'center', // Centers image in its column
-          position: 'relative'
-        }}>
+        {/* LEFT SIDE: Image */}
+        <div className="hero-image-container">
           <div className="profile-image-wrapper" style={{
-            borderRadius: '20px',
-            overflow: 'hidden',
             boxShadow: '0 0 50px -10px rgba(100, 255, 218, 0.3)', 
-            border: '2px solid var(--green)',
-            position: 'relative',
-            zIndex: 1,
-            // Width/Height are now handled by the CSS class 'profile-image-wrapper'
           }}>
              <img 
               src="/kavya_.jpeg" 
@@ -54,14 +34,11 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE: The Text (Intro Right) */}
-        <div style={{ flex: '1.2' }}>
-          
+        {/* RIGHT SIDE: Text */}
+        <div className="hero-text">
           <h1 style={{ 
             fontSize: 'clamp(40px, 6vw, 80px)', 
             fontWeight: '800', 
-            color: 'var(--white)', 
-            lineHeight: '1.1',
             marginBottom: '20px',
             fontFamily: 'Inter, sans-serif'
           }}>
@@ -71,18 +48,14 @@ const Hero = () => {
           <p style={{ 
             fontSize: '18px', 
             color: 'var(--slate)', 
-            lineHeight: '1.6', 
+            marginBottom: '40px',
             maxWidth: '540px' 
           }}>
             I’m an <b style={{ color: 'var(--green)' }}>AI Engineer</b> and software builder based in Bangalore. 
             I’m fascinated by intelligent systems and love creating scalable products that bridge the gap between complex data and human understanding.
-            <br /><br />
           </p>
 
-          {/* Buttons */}
-          <div style={{ marginTop: '40px', display: 'flex', gap: '20px' }}>
-            
-            {/* Directs to Gmail Web Compose */}
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kavya200267@gmail.com" target="_blank" rel="noreferrer" style={{ 
               padding: '18px 28px', 
               border: '1px solid var(--green)', 
@@ -90,13 +63,10 @@ const Hero = () => {
               borderRadius: '4px',
               fontSize: '14px',
               fontFamily: 'var(--font-mono)',
-              textDecoration: 'none',
-              cursor: 'pointer',
-              backgroundColor: 'transparent'
+              textDecoration: 'none'
             }}>
               Get in Touch
             </a>
-
             <a href="https://github.com/Kavya291" target="_blank" rel="noreferrer" style={{ 
               padding: '18px 28px', 
               border: '1px solid var(--white)', 
@@ -104,8 +74,7 @@ const Hero = () => {
               borderRadius: '4px',
               fontSize: '14px',
               fontFamily: 'var(--font-mono)',
-              textDecoration: 'none',
-              cursor: 'pointer'
+              textDecoration: 'none'
             }}>
               Check out my git
             </a>
