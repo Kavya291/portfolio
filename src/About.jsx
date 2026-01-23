@@ -24,7 +24,6 @@ const About = () => {
       color: 'var(--slate)'
     }}>
       
-      {/* HEADER: / about me */}
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '40px' }}>
         <h2 style={{
           fontSize: 'clamp(26px, 5vw, 32px)',
@@ -36,7 +35,7 @@ const About = () => {
           <span style={{ color: 'white', fontSize: '20px', marginRight: '10px' }}>/</span>
           about me
         </h2>
-        {/* The Horizontal Line */}
+        
         <div style={{
           height: '1px',
           backgroundColor: '#233554',
@@ -45,10 +44,10 @@ const About = () => {
         }}></div>
       </div>
 
-      {/* CONTENT GRID */}
+      
       <div style={{ display: 'block' }}> 
         
-        {/* TEXT CONTENT */}
+        
         <div style={{ fontSize: '18px', lineHeight: '1.6', maxWidth: '800px' }}>
           <p style={{ marginBottom: '15px' }}>
             I enjoy creating intelligent systems that live on the internet. My interest in technology started back in college, and I love solving complex problems using data and logic.
@@ -67,7 +66,7 @@ const About = () => {
           </p>
         </div>
 
-        {/* SKILLS LIST - 3 COLUMNS */}
+        
         <ul style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4, minmax(140px, 10fr))', 
@@ -95,7 +94,7 @@ const About = () => {
           ))}
         </ul>
 
-        {/* PERSONAL HOBBIES SECTION */}
+        
         <div style={{ fontSize: '18px', lineHeight: '1.6', maxWidth: '800px' }}>
             <p>
                 Outside of work, I love <b>exploring and traveling</b> to new places. When I'm not coding, you'll find me reading <b>fiction</b>, binge-watching series, or getting lost in the rabbit hole of <b>YouTube</b>. I also love to <b>swim</b> and experiment with new recipes in the kitchen.

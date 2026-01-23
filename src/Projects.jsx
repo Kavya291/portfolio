@@ -28,7 +28,6 @@ const Projects = () => {
       marginBottom: '100px' 
     }}>
       
-      {/* HEADER */}
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '40px' }}>
         <h2 style={{
           fontSize: 'clamp(26px, 5vw, 32px)',
@@ -48,7 +47,6 @@ const Projects = () => {
         }}></div>
       </div>
 
-      {/* PROJECT GRID - Using CSS Class 'projects-grid' for Mobile Control */}
       <div className="projects-grid">
         {projects.map((project, i) => (
           <div key={i} className="project-card" style={{
@@ -71,7 +69,6 @@ const Projects = () => {
             e.currentTarget.style.boxShadow = 'none';
           }}
           >
-            {/* TOP PART */}
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '30px' }}>
                 <div style={{ color: 'var(--green)' }}>
@@ -95,7 +92,6 @@ const Projects = () => {
               </p>
             </div>
 
-            {/* BOTTOM PART */}
             <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', padding: 0, margin: 0, listStyle: 'none', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--slate)' }}>
               {project.tech.map((t, i) => (
                 <li key={i}>{t}</li>

@@ -35,14 +35,13 @@ const Navbar = () => {
       alignItems: 'center',
     }}>
       
-      {/* LEFT SIDE: Logo + Links (Grouped Together) */}
+      
       <div style={{ 
         display: 'flex', 
         alignItems: 'center', 
         gap: '40px' 
       }}>
         
-        {/* Logo */}
         <a href="/" style={{ 
           fontSize: '22px', 
           fontWeight: 'bold', 
@@ -53,7 +52,6 @@ const Navbar = () => {
           kavya.
         </a>
         
-        {/* Nav Links - We add a class to HIDE these on mobile */}
         <div className="nav-links" style={{ display: 'flex', gap: '25px' }}>
           {['Home', 'About', 'Experience', 'Projects'].map((item) => (
             <a 
@@ -69,7 +67,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* RIGHT SIDE: Social Icons (Optional: Hide on mobile via CSS class if you want) */}
       <div className="social-icons" style={{ display: 'flex', gap: '25px', alignItems: 'center' }}>
         <a href="https://github.com/Kavya291" target="_blank" rel="noreferrer">
           <svg style={iconStyle} viewBox="0 0 24 24" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>

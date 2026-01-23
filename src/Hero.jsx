@@ -10,10 +10,10 @@ const Hero = () => {
       padding: '0 20px'
     }}>
       
-      {/* Use CSS class for layout */}
+      
       <div className="hero-layout">
 
-        {/* LEFT SIDE: Image */}
+        
         <div className="hero-image-container">
           <div className="profile-image-wrapper" style={{
             boxShadow: '0 0 50px -10px rgba(100, 255, 218, 0.3)', 
@@ -34,7 +34,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE: Text */}
+        
         <div className="hero-text">
           <h1 style={{ 
             fontSize: 'clamp(40px, 6vw, 80px)', 

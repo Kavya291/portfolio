@@ -30,7 +30,7 @@ const Experience = () => {
     <section id="experience" className="section-content" style={{
       color: 'var(--slate)'
     }}>
-      {/* HEADER */}
+      
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '40px' }}>
         <h2 style={{
           fontSize: 'clamp(26px, 5vw, 32px)',
@@ -50,23 +50,23 @@ const Experience = () => {
         }}></div>
       </div>
 
-      {/* THE TABBED INTERFACE */}
+      
       <div className="experience-inner" style={{
         display: 'flex',
         gap: '20px'
       }}>
         
-        {/* LEFT: The Tab List */}
+        
         <div className="tab-list" style={{
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
-          minWidth: '150px' // Ensures sidebar has width
+          minWidth: '150px' 
         }}>
-          {/* The Green Highlight Bar (Vertical) */}
+          
           <div style={{
             position: 'absolute',
-            top: `${activeTabId * 42}px`, // Moves down based on active tab
+            top: `${activeTabId * 42}px`, 
             left: 0,
             width: '2px',
             height: '42px',
@@ -75,7 +75,7 @@ const Experience = () => {
             zIndex: 10
           }}></div>
 
-          {/* The Buttons */}
+          
           {jobs.map((job, index) => (
             <button
               key={index}
@@ -83,16 +83,16 @@ const Experience = () => {
               style={{
                 background: 'transparent',
                 border: 'none',
-                borderLeft: '2px solid #233554', // The faint grey line
+                borderLeft: '2px solid #233554', 
                 textAlign: 'left',
                 padding: '0 20px',
-                height: '42px', // Fixed height for alignment
+                height: '42px', 
                 cursor: 'pointer',
                 fontFamily: 'var(--font-mono)',
                 fontSize: '13px',
                 color: activeTabId === index ? 'var(--green)' : 'var(--slate)',
                 transition: 'all 0.2s ease',
-                backgroundColor: activeTabId === index ? 'rgba(100, 255, 218, 0.05)' : 'transparent', // Subtle hover bg
+                backgroundColor: activeTabId === index ? 'rgba(100, 255, 218, 0.05)' : 'transparent', 
                 outline: 'none'
               }}
             >
@@ -101,7 +101,7 @@ const Experience = () => {
           ))}
         </div>
 
-        {/* RIGHT: The Content Panel */}
+        
         <div style={{ flex: 1, paddingLeft: '10px' }}>
           <h3 style={{
             fontSize: '22px',
@@ -133,7 +133,7 @@ const Experience = () => {
                 <span style={{
                   position: 'absolute',
                   left: 0,
-                  top: '5px', // Aligns bullet with text
+                  top: '5px', 
                   color: 'var(--green)',
                   fontSize: '14px'
                 }}>▹</span>
