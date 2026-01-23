@@ -18,8 +18,8 @@ body {
   background-color: var(--navy);
   color: var(--slate);
   font-family: 'Inter', sans-serif;
-  line-height: 1.6; /* Increased line-height to prevent text merging */
-  overflow-x: hidden; /* Prevents side-scrolling issues */
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -32,7 +32,7 @@ button { cursor: pointer; }
 html { scroll-behavior: smooth; }
 #root { width: 100%; margin: 0 auto; }
 
-/* --- 1. GLOBAL SECTION STYLES --- */
+/* --- GLOBAL SECTION STYLES --- */
 section {
   min-height: 100vh;
   display: flex;
@@ -50,7 +50,7 @@ section {
   padding: 0 20px;
 }
 
-/* --- 2. HERO LAYOUT --- */
+/* --- HERO LAYOUT --- */
 .hero-layout {
   display: flex;
   align-items: center;
@@ -73,15 +73,15 @@ section {
   z-index: 1;
 }
 
-/* --- 3. PROJECT GRID --- */
+/* --- PROJECT GRID --- */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Desktop Grid */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   justify-content: center;
 }
 
-/* --- 4. STICKY NAVBAR --- */
+/* --- NAVBAR STYLES (Cleaned Up) --- */
 .nav-container {
   position: fixed;
   top: 0; left: 0; width: 100%;
@@ -91,108 +91,61 @@ section {
   padding: 0 50px;
   height: 80px;
   box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* Flex settings handled in Navbar.jsx inline styles mostly, 
+     but this ensures container sizing is correct */
 }
 
-/* --- 5. MOBILE FIXES (The Important Part) --- */
+/* --- MOBILE FIXES --- */
 @media (max-width: 768px) {
   
-  /* Reset Sections for scrolling */
+  /* HIDE LINKS ON MOBILE (User Request) */
+  .nav-links {
+    display: none !important;
+  }
+
+  /* Reset Sections */
   section {
     min-height: auto;
     padding-top: 100px;
     padding-bottom: 60px;
-    display: block; /* Removes flex centering that squishes content */
+    display: block; 
   }
 
-  /* Navbar */
+  /* Navbar Adjustments */
   .nav-container {
     padding: 0 20px;
-    height: auto;
-    flex-direction: column;
-    gap: 15px;
-    padding-bottom: 15px;
-    background-color: #0a192f; /* Solid color to prevent text bleed-through */
+    height: 70px; /* Slightly shorter on mobile */
   }
 
-  /* Hero: Stack items vertically */
+  /* Hero Stack */
   .hero-layout {
-    flex-direction: column-reverse; /* Text Top, Image Bottom */
+    flex-direction: column-reverse;
     gap: 30px;
     text-align: left;
   }
   
   .profile-image-wrapper {
-    width: 250px; /* Smaller image */
+    width: 250px;
     height: 250px;
     margin-bottom: 20px;
   }
 
-  /* Projects: Force Single Column */
+  /* Projects */
   .projects-grid {
-    grid-template-columns: 1fr; /* Force 1 card per row */
+    grid-template-columns: 1fr;
   }
   
-  /* Text Sizing */
   h1 { font-size: 40px !important; }
   p { font-size: 16px !important; }
 
-  /* Hide Social Icons on Mobile Header */
-  .social-icons { display: none; }
+  /* Optional: Hide Socials on Mobile if you want it super clean.
+     Remove this line if you WANT icons on mobile. */
+  /* .social-icons { display: none; } */
 }
 
-/* --- 6. BIG SCREENS --- */
+/* --- BIG SCREENS --- */
 @media (min-width: 1600px) {
   #root { max-width: 1600px; }
   .section-content { max-width: 1400px; }
   .section-content p, .section-content li { font-size: 20px !important; }
-}
-
-/* --- NAVBAR STYLES --- */
-
-/* 1. Default Desktop View (Clean Row) */
-.nav-menu {
-  display: flex;
-  gap: 25px;
-  align-items: center;
-}
-
-.hamburger {
-  display: none; /* Hidden on laptop/desktop */
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  z-index: 1001; /* Above everything */
-}
-
-/* 2. Mobile View (The Fix) */
-@media (max-width: 768px) {
-  
-  /* Show the 3-line bar */
-  .hamburger {
-    display: block;
-  }
-
-  /* Hide the desktop links by default */
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%; /* Hidden off-screen to the right */
-    height: 100vh;
-    width: 70%; /* Takes up 70% of screen */
-    background-color: #112240; /* Light Navy */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    transition: right 0.3s ease-in-out; /* Smooth slide animation */
-    box-shadow: -10px 0px 30px -15px rgba(2, 12, 27, 0.7);
-  }
-
-  /* When menu is open, slide it in */
-  .nav-menu.active {
-    right: 0;
-  }
 }
